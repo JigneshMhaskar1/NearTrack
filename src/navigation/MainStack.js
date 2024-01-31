@@ -6,6 +6,7 @@ import {ScreenNames} from '../global';
 import SplashScreen from '../screen/SpashScreen';
 import BottomTabs from './BottomTabs/BottomTabs';
 import DrawerTab from './DrawerTab/DrawerTab';
+import HomeScreen from '../screen/HomeScreen';
 enableScreens();
 const Stack = createStackNavigator();
 const MainStack = () => {
@@ -20,7 +21,9 @@ const MainStack = () => {
         />
         <Stack.Screen name={ScreenNames.BOTTOM_TAB} component={BottomTabs} />
         <Stack.Screen name={ScreenNames.DRAWER_TAB} component={DrawerTab} />
+        <Stack.Screen name={ScreenNames.HOME_SCREEN} component={HomeScreen} />
 
+        
         {/*  */}
       </Stack.Navigator>
     </NavigationContainer>

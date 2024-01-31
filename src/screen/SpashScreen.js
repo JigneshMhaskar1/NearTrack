@@ -10,7 +10,7 @@ const SplashScreen = () => {
     const DareNowOpacity = React.useRef(new Animated.Value(1)).current;
     const resetStackAndGoToBottom = CommonActions.reset({
         index: 0,
-        routes: [{ name: ScreenNames.BOTTOM_TAB }],
+        routes: [{ name: ScreenNames.HOME_SCREEN }],
     });
     const onLoad = async () => {
         Animated.timing(DareNowOpacity, {
