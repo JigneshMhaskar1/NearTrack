@@ -1,0 +1,3 @@
+//  call the svg with height and width and reponsive
+{/* <BoxSvg heigth={Constant.CHANGE_BY_MOBILE_DPI(35)} width={Constant.CHANGE_BY_MOBILE_DPI(35)}/> */}
+
