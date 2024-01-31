@@ -1,10 +1,11 @@
 import React from 'react';
 import { Animated, StyleSheet, Text, View } from 'react-native'
-import { Colors, ScreenNames } from '../global';
+import { Colors, Fonts, ScreenNames } from '../global';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import { CHANGE_BY_MOBILE_DPI } from '../global/constant';
 import NearTrackSvg from '../assets/svgs/logo.svg'
 import FocusAwareStatusBar from '../components/FocusAwareStatusBar';
+import HospitalSvg from '../assets/svgs/hospital-svgrepo-com.svg'
 const SplashScreen = () => {
     const navigation = useNavigation()
     const DareNowOpacity = React.useRef(new Animated.Value(1)).current;
@@ -29,6 +30,8 @@ const SplashScreen = () => {
     return (
         <View style={styles.container}>
             <FocusAwareStatusBar barColor={Colors.PRIMARY} isLightBar={true} />
+            <HospitalSvg style={{height:90,width:90}}/>
+            <Text style={{fontSize:18,fontFamily:Fonts.AXIFORMA_BOLD,color:Colors.WHITE,marginTop:10}}>NearTrack</Text> 
         </View>
     );
 };

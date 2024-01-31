@@ -8,57 +8,94 @@ import {
   Dimensions,
 } from "react-native";
 import MapView, { Marker } from "react-native-maps";
+import { styles } from "../navigation/BottomTabs/styles";
+import { Colors, Constant } from "../global";
 
 const Images = [
-  { uri: "https://i.imgur.com/sNam9iJ.jpg" },
-  { uri: "https://i.imgur.com/N7rlQYt.jpg" },
-  { uri: "https://i.imgur.com/UDrH0wm.jpg" },
-  { uri: "https://i.imgur.com/Ka8kNST.jpg" },
+  { uri: "https://upload.wikimedia.org/wikipedia/commons/2/27/Portland_Shriner_Hospital_full_-_Oregon.JPG" },
+  { uri: "https://upload.wikimedia.org/wikipedia/commons/1/11/Japanese_Red_Cross_Nagoya_Daini_hospital.JPG" },
+  { uri: "https://i0.wp.com/www.orthospinenews.com/wp-content/uploads/2019/04/Hospital-building-12bto234rui.jpg?fit=790%2C559&ssl=1" },
+  { uri: "https://healthfirsts.in/izhan94/uploads/2020/01/devasyahospital5.jpg" },
+  { uri: "https://seniornewsandliving.com/wp-content/uploads/2016/07/COMMWEB72.jpg" },
+  { uri: "https://www.shbarcelona.com/blog/en/wp-content/uploads/2014/03/Spain.Catalonia.Hospitalet.Hospital.de_.Bellvitge.2.jpg" },
+  { uri: "https://th.bing.com/th/id/OIP.TKsuwo6wr5wlm2oNa40yRwHaFN?rs=1&pid=ImgDetMain" },
+  { uri: "https://vedicologyindia.com/wp-content/uploads/2021/03/Vastu-For-Hospital.jpg" },
+  { uri: "https://www.aljazeera.com/mritems/imagecache/mbdxxlarge/mritems/Images/2012/5/3/201253145357454734_20.jpg" },
+  { uri: "https://3.bp.blogspot.com/-j8rnVudiqzI/WLRlKal6XpI/AAAAAAAANjI/UiNwQRbB5NktSPt48OX6SuFpC03GCCRbwCLcB/s1600/45.jpg" },
+  { uri: "https://th.bing.com/th/id/R.299d01dbb0aa13674b01e45d480bc484?rik=1a7OwD5IvlkzCQ&riu=http%3a%2f%2fcitifmonline.com%2fwp-content%2fuploads%2f2016%2f09%2findian-hospital-1-480x330.jpg&ehk=6eDaePipBy6ezbN6CIip23S7WL42aNIodOoM8LvZdcg%3d&risl=&pid=ImgRaw&r=0" },
+
 ];
 
 const { width, height } = Dimensions.get("window");
 
 const CARD_HEIGHT = height / 4;
-const CARD_WIDTH = CARD_HEIGHT - 50;
+const CARD_WIDTH = CARD_HEIGHT - 40;
 
 const HomeScreen = () => {
   const [markers, setMarkers] = useState([
     {
       coordinate: {
-        latitude: 45.524548,
-        longitude: -122.6749817,
+        latitude: 19.249960,
+        longitude: - 73.017648,
       },
-      title: "Best Place",
-      description: "This is the best place in Portland",
+      title: "S S Hospital",
+      description: "Pavanputra Enclave, Thane - Bhiwandi Road, Opposite Jain Temple, District, Kalher, Thane, Maharashtra 421302",
       image: Images[0],
     },
     {
       coordinate: {
-        latitude: 45.524698,
-        longitude: -122.6655507,
+        latitude: 19.288799,
+        longitude: - 73.067346,
       },
-      title: "Second Best Place",
-      description: "This is the second best place in Portland",
+      title: "Frank Hospital",
+      description: "603/1 Frank Hospital Khadan Road Aas Bibi, Kalyan - Bhiwandi Road, Opp. Gupta Transport, Mumbai, Maharashtra 421302",
       image: Images[1],
     },
     {
       coordinate: {
-        latitude: 45.5230786,
-        longitude: -122.6701034,
+        latitude: 19.288038,
+        longitude: - 73.055281,
       },
-      title: "Third Best Place",
-      description: "This is the third best place in Portland",
+      title: "Amrut Hospital",
+      description: "Dhamankar Naka, Padma Nagar, Bhiwandi, Mumbai, Maharashtra 421302",
       image: Images[2],
     },
-    {
+ {
       coordinate: {
-        latitude: 45.521016,
-        longitude: -122.6561917,
+        latitude: 19.289761,
+        longitude: - 73.068948,
       },
-      title: "Fourth Best Place",
-      description: "This is the fourth best place in Portland",
+      title: "Masoom Hospital",
+      description: "Kalyan Bhiwandi Road, Rajeev Gandhi Chowk, Bhiwandi, Maharashtra 421302",
       image: Images[3],
     },
+ {
+      coordinate: {
+        latitude: 19.296317,
+        longitude: - 73.062573,
+      },
+      title: "Sagar Hospital",
+      description: " Dhamankar Naka, Padma Nagar, Bhiwandi, Maharashtra 421302, India, Bhiwandi, Maharashtra 421302",
+      image: Images[4],
+    },
+ {
+      coordinate: {
+        latitude: 19.300088,
+        longitude: -73.055265,
+      },
+      title: "Dange Hospital",
+      description: " 29, Mandai - Dhamankar Naka Road, Prabhu Ali, Mandai, Bhiwandi, Maharashtra 421302",
+      image: Images[5],
+    },
+ {
+      coordinate: {
+        latitude: 19.304481,
+        longitude: -73.065884,
+      },
+      title: "Sai Leela Hospital",
+      description: " Firdous Complex, Old Mumbai-Agra Rd, Vetal Pada, Gulzar Nagar, Bhiwandi, Thane, Maharashtra 421302",
+      image: Images[6],
+    }
   ]);
 
   const [region, setRegion] = useState({
@@ -79,52 +116,24 @@ const HomeScreen = () => {
     ];
     const scale = animation.interpolate({
       inputRange,
-      outputRange: [1, 2.5, 1],
+      outputRange: [1, 4, 1],
       extrapolate: "clamp",
     });
+    const borderRadius = animation.interpolate({
+      inputRange,
+      outputRange: [100, 0, 100], // You can adjust the values according to your preference
+      extrapolate: "clamp",
+    });
+
     const opacity = animation.interpolate({
       inputRange,
-      outputRange: [0.35, 1, 0.35],
+      outputRange: [0.75, 1, 0.75],
       extrapolate: "clamp",
     });
-    return { scale, opacity };
+    return { scale, opacity ,borderRadius};
   });
 
   const mapRef = useRef(null);
-
-  // useEffect(() => {
-  //   const listener = ({ value }) => {
-  //     let newIndex = Math.floor(value / CARD_WIDTH + 0.3);
-  //     if (newIndex >= markers.length) {
-  //       newIndex = markers.length - 1;
-  //     }
-  //     if (newIndex <= 0) {
-  //       newIndex = 0;
-  //     }
-
-  //     clearTimeout(regionTimeout);
-  //     regionTimeout = setTimeout(() => {
-  //       if (index.current !== newIndex) {
-  //         index.current = newIndex;
-  //         const { coordinate } = markers[newIndex];
-  //         mapRef.current.animateToRegion(
-  //           {
-  //             ...coordinate,
-  //             latitudeDelta: region.latitudeDelta,
-  //             longitudeDelta: region.longitudeDelta,
-  //           },
-  //           350
-  //         );
-  //       }
-  //     }, 10);
-  //   };
-
-  //   animation.addListener(listener);
-
-  //   return () => {
-  //     animation.removeListener(listener);
-  //   };
-  // }, [markers, region]);
 
   useEffect(() => {
     if (markers.length === 0) {
@@ -168,26 +177,10 @@ const HomeScreen = () => {
   }, [markers, region]);
 
   let regionTimeout;
-
   const handleScroll = (event) => {
     const value = event.nativeEvent.contentOffset.x;
     animation.setValue(value);
-
     clearTimeout(regionTimeout);
-    regionTimeout = setTimeout(() => {
-      if (index.current !== index) {
-        index.current = index;
-        const { coordinate } = markers[index];
-        mapRef.current.animateToRegion(
-          {
-            ...coordinate,
-            latitudeDelta: region.latitudeDelta,
-            longitudeDelta: region.longitudeDelta,
-          },
-          350
-        );
-      }
-    }, 10);
   };
 
   return (
@@ -203,25 +196,22 @@ const HomeScreen = () => {
               <Animated.View style={{ alignItems: "center", justifyContent: "center" }}>
                 <Animated.View
                   style={{
-                    width: 24,
-                    height: 24,
-                    borderRadius: 12,
-                    backgroundColor: "rgba(130,4,150, 0.3)",
-                    position: "absolute",
-                    borderWidth: 1,
-                    borderColor: "rgba(130,4,150, 0.5)",
-                    transform: [{ scale: interpolations[index].scale }],
+                    width: 50,
+                    height: 55,
+                    // backgroundColor: "black",
+                    // transform: [{ scale: interpolations[index].scale }],
                     opacity: interpolations[index].opacity,
+                    borderRadius: interpolations[index].borderRadius
                   }}
-                />
-                <View
-                  style={{
-                    width: 8,
-                    height: 8,
-                    borderRadius: 4,
-                    backgroundColor: "rgba(130,4,150, 0.9)",
-                  }}
-                />
+                >
+                  <Image
+                    source={marker.image}
+                    style={{ width: 50, height: 55, alignSelf: "center", borderRadius: 100, }}
+                    resizeMode="cover"
+                  />
+
+                </Animated.View>
+
               </Animated.View>
             )}
           </Marker>
@@ -231,19 +221,22 @@ const HomeScreen = () => {
         horizontal
         scrollEventThrottle={1}
         showsHorizontalScrollIndicator={false}
-        snapToInterval={CARD_WIDTH}
+        snapToInterval={Constant.SCREEN_WIDTH}
         onScroll={handleScroll}
         style={{ position: "absolute", bottom: 30, left: 0, right: 0, paddingVertical: 10 }}
-        contentContainerStyle={{ paddingRight: width - CARD_WIDTH }}
+        // contentContainerStyle={{ marginLeft:10}}
       >
         {markers.map((marker, index) => (
-          <View style={{ padding: 10, elevation: 2, backgroundColor: "#FFF", marginHorizontal: 10 }} key={index}>
-            <Image
-              source={marker.image}
-              style={{ flex: 3, width: "100%", height: "100%", alignSelf: "center" }}
-              resizeMode="cover"
-            />
-            <View style={{ flex: 1 }}>
+
+          <View style={styles.cardComponentStyle} key={index}>
+            <View style={{ height: 80, width: 80, borderRadius: 10, borderWidth: 1, borderColor: Colors.BLACK, alignItems: 'center', justifyContent: 'center' }}>
+              <Image
+                source={marker.image}
+                style={{ width: 70, height: 70, alignSelf: "center", borderRadius: 10, }}
+                // resizeMode="cover"
+              />
+            </View>
+            <View style={{ flex: 1, marginLeft: 10 }}>
               <Text numberOfLines={1} style={{ fontSize: 12, marginTop: 5, fontWeight: "bold" }}>{marker.title}</Text>
               <Text numberOfLines={1} style={{ fontSize: 12, color: "#444" }}>{marker.description}</Text>
             </View>
